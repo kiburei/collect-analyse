@@ -1,0 +1,2 @@
+class InternetUser < ApplicationRecord
+end
