@@ -17,3 +17,31 @@
  $primary-color: color("blue", "lighten-2") !default;
  $secondary-color: color("yellow", "base") !default;
  @import 'materialize';
+
+ .internet {
+ 	background-color: #40e0d0;
+ }
+
+ .mobile {
+ 	background-color: #708090;
+ }
+
+ .facebook {
+ 	background-color: #3b5998;
+ }
+
+ .twitter {
+ 	background-color: #0084b4;
+ }
+
+ .instagram {
+ 	background-color: #cd486b;
+ }
+
+ .whatsapp {
+ 	background-color: #34af23;
+ }
+
+ .linkedin {
+ 	background-color: #0077B5;
+ }

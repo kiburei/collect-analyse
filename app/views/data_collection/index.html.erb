@@ -1,1 +1,121 @@
-<h1>Social Media and Internet Statistics Data Collection Tool</h1>
+<h3>Social Media and Internet Statistics Data Collection Tool</h3>
+<div class="row">
+	<div class="col s6 internet">
+		<h4>Add Internet User Data</h4>(<%= InternetUser.count %> records)
+		<%= form_tag("/internet_users", method: "post") do %>
+		  <div class="row">
+		  	<div class="col s6">
+		  		<%= label_tag(:year, "Year:") %>
+		  		<%= text_field_tag(:year) %>
+		  	</div>
+		  	<div class="col s6">
+		  		<%= label_tag(:hits, "Users:") %>
+		  		<%= number_field_tag(:hits) %>
+		  	</div>
+		  </div>
+		  <%= submit_tag("Add") %>
+		<% end %>
+	</div>
+
+	<div class="col s6 mobile">
+		<h4>Add Mobile User Data</h4>(<%= MobileUser.count %> records)
+		<%= form_tag("/mobile_users", method: "post") do %>
+		  <div class="row">
+		  	<div class="col s6">
+		  		<%= label_tag(:year, "Year:") %>
+		  		<%= text_field_tag(:year) %>
+		  	</div>
+		  	<div class="col s6">
+		  		<%= label_tag(:hits, "Users:") %>
+		  		<%= number_field_tag(:hits) %>
+		  	</div>
+		  </div>
+		  <%= submit_tag("Add") %>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s4 facebook">
+		<h4>Add Facebook Data</h4>(<%= FacebookUser.count %> records)
+		<%= form_tag("/facebook_users", method: "post") do %>
+		  <div class="row">
+		  	<div class="col s6">
+		  		<%= label_tag(:year, "Year:") %>
+		  		<%= text_field_tag(:year) %>
+		  	</div>
+		  	<div class="col s6">
+		  		<%= label_tag(:hits, "Users:") %>
+		  		<%= number_field_tag(:hits) %>
+		  	</div>
+		  </div>
+		  <%= submit_tag("Add") %>
+		<% end %>
+	</div>
+	<div class="col s4 twitter">
+		<h4>Add Twitter Data</h4>(<%= TwitterUser.count %> records)
+		<%= form_tag("/twitter_users", method: "post") do %>
+		  <div class="row">
+		  	<div class="col s6">
+		  		<%= label_tag(:year, "Year:") %>
+		  		<%= text_field_tag(:year) %>
+		  	</div>
+		  	<div class="col s6">
+		  		<%= label_tag(:hits, "Users:") %>
+		  		<%= number_field_tag(:hits) %>
+		  	</div>
+		  </div>
+		  <%= submit_tag("Add") %>
+		<% end %>
+	</div>
+	<div class="col s4 instagram">
+		<h4>Add Instagram Data</h4>(<%= InstagramUser.count %> records)
+		<%= form_tag("/instagram_users", method: "post") do %>
+		  <div class="row">
+		  	<div class="col s6">
+		  		<%= label_tag(:year, "Year:") %>
+		  		<%= text_field_tag(:year) %>
+		  	</div>
+		  	<div class="col s6">
+		  		<%= label_tag(:hits, "Users:") %>
+		  		<%= number_field_tag(:hits) %>
+		  	</div>
+		  </div>
+		  <%= submit_tag("Add") %>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col s4 whatsapp">
+		<h4>Add Whatsapp Data</h4>(<%= WhatsappUser.count %> records)
+		<%= form_tag("/whatsapp_users", method: "post") do %>
+		  <div class="row">
+		  	<div class="col s6">
+		  		<%= label_tag(:year, "Year:") %>
+		  		<%= text_field_tag(:year) %>
+		  	</div>
+		  	<div class="col s6">
+		  		<%= label_tag(:hits, "Users:") %>
+		  		<%= number_field_tag(:hits) %>
+		  	</div>
+		  </div>
+		  <%= submit_tag("Add") %>
+		<% end %>
+	</div>
+	<div class="col s4 linkedin">
+		<h4>Add LinkedIn Data</h4>(<%= LinkedinUser.count %> records)
+		<%= form_tag("/linkedin_users", method: "post") do %>
+		  <div class="row">
+		  	<div class="col s6">
+		  		<%= label_tag(:year, "Year:") %>
+		  		<%= text_field_tag(:year) %>
+		  	</div>
+		  	<div class="col s6">
+		  		<%= label_tag(:hits, "Users:") %>
+		  		<%= number_field_tag(:hits) %>
+		  	</div>
+		  </div>
+		  <%= submit_tag("Add") %>
+		<% end %>
+	</div>
+</div>
