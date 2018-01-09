@@ -1,121 +1,156 @@
-<h3>Social Media and Internet Statistics Data Collection Tool</h3>
 <div class="row">
 	<div class="col s6 internet">
+		<div class="icon">
+			<%= image_tag 'internet', height: '50' %>
+		</div>
 		<h4>Add Internet User Data</h4>(<%= InternetUser.count %> records)
 		<%= form_tag("/internet_users", method: "post") do %>
 		  <div class="row">
 		  	<div class="col s6">
 		  		<%= label_tag(:year, "Year:") %>
-		  		<%= text_field_tag(:year) %>
+					<%= text_field_tag(:year, if InternetUser.count > 0 then InternetUser.last.year.to_i + 1 else "Year" end) %>
 		  	</div>
 		  	<div class="col s6">
 		  		<%= label_tag(:hits, "Users:") %>
 		  		<%= number_field_tag(:hits) %>
 		  	</div>
 		  </div>
-		  <%= submit_tag("Add") %>
+		  <%= submit_tag("Add", class: 'waves-effect btn') %>
 		<% end %>
 	</div>
 
 	<div class="col s6 mobile">
+		<div class="icon">
+			<%= image_tag 'mobile', height: '50' %>
+		</div>
 		<h4>Add Mobile User Data</h4>(<%= MobileUser.count %> records)
 		<%= form_tag("/mobile_users", method: "post") do %>
 		  <div class="row">
 		  	<div class="col s6">
 		  		<%= label_tag(:year, "Year:") %>
-		  		<%= text_field_tag(:year) %>
+					<%= text_field_tag(:year, if MobileUser.count > 0 then MobileUser.last.year.to_i + 1 else "Year" end) %>
 		  	</div>
 		  	<div class="col s6">
 		  		<%= label_tag(:hits, "Users:") %>
 		  		<%= number_field_tag(:hits) %>
 		  	</div>
 		  </div>
-		  <%= submit_tag("Add") %>
+		  <%= submit_tag("Add", class: 'waves-effect btn') %>
 		<% end %>
 	</div>
-</div>
 
-<div class="row">
 	<div class="col s4 facebook">
+		<div class="icon">
+			<%= image_tag 'facebook', height: '50' %>
+		</div>
 		<h4>Add Facebook Data</h4>(<%= FacebookUser.count %> records)
 		<%= form_tag("/facebook_users", method: "post") do %>
 		  <div class="row">
 		  	<div class="col s6">
 		  		<%= label_tag(:year, "Year:") %>
-		  		<%= text_field_tag(:year) %>
+					<%= text_field_tag(:year, if FacebookUser.count > 0 then FacebookUser.last.year.to_i + 1 else "Year" end) %>
 		  	</div>
 		  	<div class="col s6">
 		  		<%= label_tag(:hits, "Users:") %>
 		  		<%= number_field_tag(:hits) %>
 		  	</div>
 		  </div>
-		  <%= submit_tag("Add") %>
+		  <%= submit_tag("Add", class: 'waves-effect btn') %>
 		<% end %>
 	</div>
 	<div class="col s4 twitter">
+		<div class="icon">
+			<%= image_tag 'twitter', height: '50' %>
+		</div>
 		<h4>Add Twitter Data</h4>(<%= TwitterUser.count %> records)
 		<%= form_tag("/twitter_users", method: "post") do %>
 		  <div class="row">
 		  	<div class="col s6">
 		  		<%= label_tag(:year, "Year:") %>
-		  		<%= text_field_tag(:year) %>
+					<%= text_field_tag(:year, if TwitterUser.count > 0 then TwitterUser.last.year.to_i + 1 else "Year" end) %>
 		  	</div>
 		  	<div class="col s6">
 		  		<%= label_tag(:hits, "Users:") %>
 		  		<%= number_field_tag(:hits) %>
 		  	</div>
 		  </div>
-		  <%= submit_tag("Add") %>
+		  <%= submit_tag("Add", class: 'waves-effect btn') %>
 		<% end %>
 	</div>
 	<div class="col s4 instagram">
+		<div class="icon">
+			<%= image_tag 'instagram', height: '50' %>
+		</div>
 		<h4>Add Instagram Data</h4>(<%= InstagramUser.count %> records)
 		<%= form_tag("/instagram_users", method: "post") do %>
 		  <div class="row">
 		  	<div class="col s6">
 		  		<%= label_tag(:year, "Year:") %>
-		  		<%= text_field_tag(:year) %>
+					<%= text_field_tag(:year, if InstagramUser.count > 0 then InstagramUser.last.year.to_i + 1 else "Year" end) %>
 		  	</div>
 		  	<div class="col s6">
 		  		<%= label_tag(:hits, "Users:") %>
 		  		<%= number_field_tag(:hits) %>
 		  	</div>
 		  </div>
-		  <%= submit_tag("Add") %>
+		  <%= submit_tag("Add", class: 'waves-effect btn') %>
 		<% end %>
 	</div>
-</div>
-<div class="row">
+
 	<div class="col s4 whatsapp">
+		<div class="icon">
+			<%= image_tag 'whatsapp', height: '50' %>
+		</div>
 		<h4>Add Whatsapp Data</h4>(<%= WhatsappUser.count %> records)
 		<%= form_tag("/whatsapp_users", method: "post") do %>
 		  <div class="row">
 		  	<div class="col s6">
 		  		<%= label_tag(:year, "Year:") %>
-		  		<%= text_field_tag(:year) %>
+					<%= text_field_tag(:year, if WhatsappUser.count > 0 then WhatsappUser.last.year.to_i + 1 else "Year" end) %>
 		  	</div>
 		  	<div class="col s6">
 		  		<%= label_tag(:hits, "Users:") %>
 		  		<%= number_field_tag(:hits) %>
 		  	</div>
 		  </div>
-		  <%= submit_tag("Add") %>
+		  <%= submit_tag("Add", class: 'waves-effect btn') %>
 		<% end %>
 	</div>
 	<div class="col s4 linkedin">
+		<div class="icon">
+			<%= image_tag 'linkedin', height: '50' %>
+		</div>
 		<h4>Add LinkedIn Data</h4>(<%= LinkedinUser.count %> records)
 		<%= form_tag("/linkedin_users", method: "post") do %>
 		  <div class="row">
 		  	<div class="col s6">
 		  		<%= label_tag(:year, "Year:") %>
-		  		<%= text_field_tag(:year) %>
+					<%= text_field_tag(:year, if LinkedinUser.count > 0 then LinkedinUser.last.year.to_i + 1 else "Year" end) %>
 		  	</div>
 		  	<div class="col s6">
 		  		<%= label_tag(:hits, "Users:") %>
 		  		<%= number_field_tag(:hits) %>
 		  	</div>
 		  </div>
-		  <%= submit_tag("Add") %>
+		  <%= submit_tag("Add", class: 'waves-effect btn') %>
+		<% end %>
+	</div><div class="col s4 telegram">
+		<div class="icon">
+			<%= image_tag 'telegram', height: '50' %>
+		</div>
+		<h4>Add Telegram Data</h4>(<%= TelegramUser.count %> records)
+		<%= form_tag("/telegram_users", method: "post") do %>
+		  <div class="row">
+		  	<div class="col s6">
+		  		<%= label_tag(:year, "Year:") %>
+		  		<%= text_field_tag(:year, if TelegramUser.count > 0 then TelegramUser.last.year.to_i + 1 else "Year" end) %>
+		  	</div>
+		  	<div class="col s6">
+		  		<%= label_tag(:hits, "Users:") %>
+		  		<%= number_field_tag(:hits) %>
+		  	</div>
+		  </div>
+		  <%= submit_tag("Add", class: 'waves-effect btn') %>
 		<% end %>
 	</div>
 </div>

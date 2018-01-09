@@ -7,7 +7,15 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">D4A</a>
+      <ul class="left hide-on-med-and-down">
+        <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Admin", root_path %></li>
+        <li class="<%= 'active' if current_page?(data_collection_dashboard_path) %>"><%= link_to "Reports", data_collection_dashboard_path %></li>
+      </ul>
+    </div>
+  </nav>
   <body>
     <%= yield %>
   </body>
