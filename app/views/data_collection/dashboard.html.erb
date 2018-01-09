@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col s6 ">
+		<div class="icon">
+			<%= image_tag 'internet', height: '50' %>
+		</div>
+		<h4>Internet User Data</h4>
+    <%= area_chart @internet_data, download: true %>
+	</div>
+
+	<div class="col s6 ">
+		<div class="icon">
+			<%= image_tag 'mobile', height: '50' %>
+		</div>
+		<h4>Mobile User Data</h4>
+    <%= area_chart @mobile_data, download: true %>
+	</div>
+
+	<div class="col s4 ">
+		<div class="icon">
+			<%= image_tag 'facebook', height: '50' %>
+		</div>
+		<h4>Facebook Data</h4>
+    <%= area_chart @facebook_data, download: true %>
+	</div>
+	<div class="col s4 ">
+		<div class="icon">
+			<%= image_tag 'twitter', height: '50' %>
+		</div>
+		<h4>Twitter Data</h4>
+    <%= area_chart @twitter_data, download: true %>
+	</div>
+	<div class="col s4 ">
+		<div class="icon">
+			<%= image_tag 'instagram', height: '50' %>
+		</div>
+		<h4>Instagram Data</h4>
+    <%= area_chart @instagram_data, download: true %>
+	</div>
+
+	<div class="col s4 ">
+		<div class="icon">
+			<%= image_tag 'whatsapp', height: '50' %>
+		</div>
+		<h4>Whatsapp Data</h4>
+    <%= area_chart @whatsapp_data, download: true %>
+	</div>
+	<div class="col s4 ">
+		<div class="icon">
+			<%= image_tag 'linkedin', height: '50' %>
+		</div>
+		<h4>LinkedIn Data</h4>
+    <%= area_chart @linkedin_data, download: true %>
+	</div><div class="col s4 ">
+		<div class="icon">
+			<%= image_tag 'telegram', height: '50' %>
+		</div>
+		<h4>Telegram Data</h4>
+    <%= area_chart @telegram_data, download: true %>
+	</div>
+</div>
