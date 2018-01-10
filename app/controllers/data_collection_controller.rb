@@ -9,6 +9,7 @@ class DataCollectionController < ApplicationController
     end
 
     def dashboard
+      @source = Source.all
       @internet_data = InternetUser.group(:year).sum(:hits)
       @mobile_data = MobileUser.group(:year).sum(:hits)
       @facebook_data = FacebookUser.group(:year).sum(:hits)
