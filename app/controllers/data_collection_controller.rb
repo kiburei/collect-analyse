@@ -1,6 +1,7 @@
 class DataCollectionController < ApplicationController
+    before_action :authenticate_admin!
 
-    def index
+    def admin
 
     end
 
@@ -18,7 +19,7 @@ class DataCollectionController < ApplicationController
       @whatsapp_data = WhatsappUser.group(:year).sum(:hits)
       @linkedin_data = LinkedinUser.group(:year).sum(:hits)
       @telegram_data = TelegramUser.group(:year).sum(:hits)
-      
+
     end
 
 end

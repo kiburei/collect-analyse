@@ -3,7 +3,6 @@
   <head>
     <title>CollectAnalyse</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -11,8 +10,8 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo center">D4A</a>
       <ul class="left hide-on-med-and-down">
-        <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Admin", root_path %></li>
-        <li class="<%= 'active' if current_page?(data_collection_dashboard_path) %>"><%= link_to "Reports", data_collection_dashboard_path %></li>
+        <li class="<%= 'active' if current_page?(data_collection_admin_path) %>"><%= link_to "Admin", data_collection_admin_path %></li>
+        <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Reports", root_path %></li>
       </ul>
     </div>
   </nav>

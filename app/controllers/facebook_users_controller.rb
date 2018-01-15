@@ -1,5 +1,6 @@
 class FacebookUsersController < ApplicationController
-
+	before_action :authenticate_admin!
+	
 	def create
 		@facebook_user = FacebookUser.new(facebook_user_params)
 		respond_to do |format|
@@ -10,7 +11,7 @@ class FacebookUsersController < ApplicationController
 			end
 		end
 	end
-	
+
 	private
 
 	def facebook_user_params

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'data_collection#index'
+  devise_for :admins
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  root 'data_collection#dashboard'
+  get 'data_collection/admin', :to => 'data_collection#admin'
   get 'data_collection/dashboard', :to => 'data_collection#dashboard'
   get 'data_collection/internet_user', :to => 'data_collection#internet_user'
   resources 'internet_users'
