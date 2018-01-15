@@ -1,5 +1,5 @@
 class DataCollectionController < ApplicationController
-    before_action :authenticate_admin!
+    before_action :authenticate_admin!, :except => [:internet_user, :dashboard]
 
     def admin
 
