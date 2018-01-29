@@ -10,9 +10,23 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require Chart.bundle
 //= require chartkick
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
 //= require materialize
+
+
+  $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('#modalInternet').modal();
+    $('#modalMobile').modal();
+    $('#modalFacebook').modal();
+    $('#modalTwitter').modal();
+    $('#modalInstagram').modal();
+    $('#modalWhatsapp').modal();
+    $('#modalTelegram').modal();
+    $('#modalLinkedin').modal();
+  });

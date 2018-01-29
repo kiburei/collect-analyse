@@ -1,59 +1,54 @@
-	<div class="row">
-    <div class="col s6 dash">
+
   		<div class="icon">
   			<%= image_tag 'internet', height: '50' %>
   		</div>
       <div class="chart">
-        <%= area_chart data_collection_internet_user_path, refresh: 5, download: true, title: "Internet Trends", xtitle: "Year", ytitle: "Hits", legend: "Cows" %>
+        <%= area_chart data_collection_internet_user_path, download: true, title: "Internet Trends", xtitle: "Year", ytitle: "Hits" %>
       </div>
-  	</div>
+      <%= link_to 'Export', data_collection_internet_user_path %>
 
-  	<div class="col s6 dash">
   		<div class="icon">
   			<%= image_tag 'mobile', height: '50' %>
   		</div>
-      <%= area_chart @mobile_data, refresh: 5, download: true, title: "Mobile Trends", xtitle: "Year", ytitle: "Hits" %>
+      <div class="chart">
+      	<%= area_chart data_collection_mobile_user_path, download: true, title: "Mobile Trends", xtitle: "Year", ytitle: "Hits" %>
+      </div>
   	</div>
-	</div>
-
-	<div class="row">
-    <div class="col s4 dash">
   		<div class="icon">
   			<%= image_tag 'facebook', height: '50' %>
   		</div>
-      <%= area_chart @facebook_data, refresh: 5, download: true, title: "Facebook Trends", xtitle: "Year", ytitle: "Hits" %>
-  	</div>
-  	<div class="col s4 ">
+			<div class="chart">
+        <%= area_chart data_collection_facebook_user_path, download: true, title: "Facebook Trends", xtitle: "Year", ytitle: "Hits" %>
+      </div>
   		<div class="icon">
   			<%= image_tag 'twitter', height: '50' %>
   		</div>
-      <%= area_chart @twitter_data, refresh: 5, download: true, title: "Twitter Trends", xtitle: "Year", ytitle: "Hits" %>
-  	</div>
-  	<div class="col s4 ">
+      <div class="chart">
+      	<%= area_chart data_collection_twitter_user_path, download: true, title: "Twitter Trends", xtitle: "Year", ytitle: "Hits" %>
+      </div>
   		<div class="icon">
   			<%= image_tag 'instagram', height: '50' %>
   		</div>
-      <%= area_chart @instagram_data, refresh: 5, download: true, title: "Instagram Trends", xtitle: "Year", ytitle: "Hits" %>
+      <div class="chart">
+      	<%= area_chart data_collection_instagram_user_path, download: true, title: "Instagram Trends", xtitle: "Year", ytitle: "Hits" %>
+      </div>
   	</div>
-	</div>
 
-	<div class="row">
-    <div class="col s4 ">
   		<div class="icon">
   			<%= image_tag 'whatsapp', height: '50' %>
   		</div>
-      <%= area_chart @whatsapp_data, refresh: 5, download: true, title: "Whatsapp Trends", xtitle: "Year", ytitle: "Hits" %>
-  	</div>
-  	<div class="col s4 ">
+      <div class="chart">
+      	<%= area_chart data_collection_whatsapp_user_path, download: true, title: "Whatsapp Trends", xtitle: "Year", ytitle: "Hits" %>
+      </div>
   		<div class="icon">
   			<%= image_tag 'linkedin', height: '50' %>
   		</div>
-      <%= area_chart @linkedin_data, refresh: 5, download: true, title: "LinedIn Trends", xtitle: "Year", ytitle: "Hits" %>
-  	</div>
-    <div class="col s4 ">
-  		<div class="icon">
+      <div class="chart">
+      	<%= area_chart data_collection_linkedin_user_path, download: true, title: "LinedIn Trends", xtitle: "Year", ytitle: "Hits" %>
+      </div>
+    	<div class="icon">
   			<%= image_tag 'telegram', height: '50' %>
   		</div>
-      <%= area_chart @telegram_data, refresh: 5, download: true, title: "Telegram Trends", xtitle: "Year", ytitle: "Hits" %>
-  	</div>
-	</div>
+      <div class="chart">
+      	<%= area_chart data_collection_telegram_user_path, download: true, title: "Telegram Trends", xtitle: "Year", ytitle: "Hits" %>
+      </div>

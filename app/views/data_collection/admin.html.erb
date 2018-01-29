@@ -12,11 +12,23 @@
 		  	</div>
 		  	<div class="col s6">
 		  		<%= label_tag(:hits, "Users:") %>
-		  		<%= number_field_tag(:hits) %>
+		  		<%= number_field_tag(:hits, :required => true) %>
 		  	</div>
 		  </div>
 		  <%= submit_tag("Add", class: 'waves-effect btn') %>
 		<% end %>
+		<a class="waves-effect waves-light btn modal-trigger" href="#modalInternet">More</a>
+
+		<!-- Modal Structure -->
+		<div id="modalInternet" class="modal">
+			<div class="modal-content">
+				<h4>More Infromation</h4>
+				<p>More infromation on the data collected can be added here, reports, sources etc</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			</div>
+		</div>
 	</div>
 
 	<div class="col s6 mobile">
