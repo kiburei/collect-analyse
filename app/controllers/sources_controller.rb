@@ -1,5 +1,9 @@
 class SourcesController < ApplicationController
 
+  def new
+    @source = Source.new
+  end
+
   def create
   	@source = Source.new(source_params)
   	respond_to do |format|
@@ -14,7 +18,7 @@ class SourcesController < ApplicationController
   private
 
   def source_params
-		params.permit(:name, :link, :medium)
+		params.require(:source).permit(:name, :link, :medium)
 	end
 
 end

@@ -10,7 +10,7 @@ class InternetUsersController < ApplicationController
 			end
 		end
 	end
-	
+
 	private
 
 	def internet_user_params

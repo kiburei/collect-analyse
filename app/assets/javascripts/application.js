@@ -21,12 +21,7 @@
 
   $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-    $('#modalInternet').modal();
-    $('#modalMobile').modal();
-    $('#modalFacebook').modal();
-    $('#modalTwitter').modal();
-    $('#modalInstagram').modal();
-    $('#modalWhatsapp').modal();
-    $('#modalTelegram').modal();
-    $('#modalLinkedin').modal();
+    $('#report-internet').hide();
+    $('#hide').hide();
+    $('.modal1').modal();
   });

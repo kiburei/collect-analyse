@@ -1,0 +1,17 @@
+<h2>Add Source</h2>
+<%= form_for(@source) do |f| %>
+<div class="form">
+  <div class="">
+    <%= f.label :name %>
+    <%= f.text_area :name %>
+  </div>
+  <div class="">
+    <%= f.label :link %>
+    <%= f.text_area :link %>
+  </div>
+  <div class="">
+    <%= f.hidden_field :medium, value: params[:format] %>
+  </div>
+  <%= f.submit %>
+</div>
+<% end %>

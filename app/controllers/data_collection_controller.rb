@@ -6,12 +6,7 @@ class DataCollectionController < ApplicationController
     end
 
     def internet_user
-      @internet_user = InternetUser.all
-      respond_to do |format|
-        format.html
-        format.csv { send_data @internet_user.to_csv }
-      end
-      # render json: InternetUser.group(:year).sum(:hits)
+      render json: InternetUser.group(:year).sum(:hits)
     end
 
     def mobile_user
@@ -43,7 +38,7 @@ class DataCollectionController < ApplicationController
     end
 
     def dashboard
-
+      @sources = Source.all
     end
 
 end

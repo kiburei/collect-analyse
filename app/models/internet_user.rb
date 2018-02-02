@@ -1,5 +1,5 @@
 class InternetUser < ApplicationRecord
-  validates :hits, presence: true
+  has_many :sources
 
   def self.to_csv
     CSV.generate do |csv|

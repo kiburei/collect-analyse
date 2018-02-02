@@ -18,6 +18,41 @@
  $secondary-color: color("yellow", "base") !default;
  @import 'materialize';
 
+.dash {
+  display: flex;
+}
+
+.charts {
+  flex: 9;
+}
+
+.source-url {
+  float: left;
+}
+
+.card {
+  font-size: 13px;
+  h1, h2, h3, h4, h5, h6 {
+    color: #64B5F6;
+    font-size: 20px;
+  }
+}
+
+.chart-actions {
+  float: right;
+}
+
+#side-nav {
+  background-color: #64B5F6;
+  color: white;
+  flex: 1;
+
+}
+
+.report {
+  padding: 10px;
+}
+
  .internet {
  	background-color: #40e0d0;
  }
@@ -55,6 +90,8 @@
  }
 
  .chart {
+  //  background-color: black;
+  //  opacity: 0.9;
    padding: 25px;
  }
 

@@ -13,11 +13,13 @@ Rails.application.routes.draw do
   get 'data_collection/telegram_user', :to => 'data_collection#telegram_user'
   get 'data_collection/instagram_user', :to => 'data_collection#instagram_user'
   resources 'internet_users'
+  get 'internet_users/add_source', :to => 'internet_users#add_source'
   resources 'mobile_users'
   resources 'facebook_users'
   resources 'twitter_users'
   resources 'instagram_users'
   resources 'whatsapp_users'
   resources 'linkedin_users'
+  resources 'sources'
 
 end
