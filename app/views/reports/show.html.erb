@@ -1,24 +1,18 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: 'layouts/nav' %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @report.title %>
-</p>
+<div class="report-page">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @report.body %>
-</p>
+    <h3 class="card-title"><%= @report.title %></h3>
+    <%= @report.body %></br>
 
-<p>
-  <strong>Author:</strong>
-  <%= @report.author %>
-</p>
+    <strong>Author:</strong>
+    <%= @report.author %></br>
 
-<p>
-  <strong>Medium:</strong>
-  <%= @report.medium %>
-</p>
+    <strong>Medium:</strong>
+    <%= @report.medium %></br>
 
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Back', reports_path %>
+  <%= link_to 'Edit', edit_report_path(@report) %> |
+  <%= link_to 'Back', reports_path %>
+
+</div>

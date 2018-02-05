@@ -41,6 +41,7 @@ class DataCollectionController < ApplicationController
       @sources = Source.all
       @reports = Report.all
       @report = Report.new
+      @source = Source.new
     end
 
 end

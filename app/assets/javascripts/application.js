@@ -25,4 +25,5 @@
     $('#add_internet_data').modal();
     $('#share-icons').modal();
     $('#add_internet_report').modal();
+    $('#add_internet_source').modal();
   });

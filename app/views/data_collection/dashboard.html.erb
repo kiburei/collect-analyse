@@ -11,9 +11,9 @@
 
   <div class="col s10 charts">
 
-          <!-- Internet -->
+          <!-- Internet Section-->
           <div class="card">
-            <h2 class="card-title">Number of Internet users in Kenya</h2>
+            <h2 class="card-title">Number of Internet Users in Kenya</h2>
             <div class="row">
               <div class="col s3">
                 <% report = @reports.where(medium: 'Internet').last %>
@@ -30,12 +30,12 @@
                  <!-- End report -->
                 <a class="material-icons modal-trigger" href="#add_internet_report">add_circle</a>
                 <div id="add_internet_report" class="modal">
-                  <div class="report-form">
+                  <div class="modal-form">
                     <h5 class="card-title">New Report</h5>
                     <%= render :partial => 'reports/form', locals: {medium: "Internet"} %>
                   </div>
                 </div>
-                <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                <!-- <%= link_to "edit", edit_report_path(report), class: 'material-icons' %> -->
                 <%= link_to "archive", internet_users_download_path, class: 'material-icons' %>
                 <a class="material-icons modal-trigger" href="#add_internet_data">insert_chart</a>
                 <div id="add_internet_data" class="modal">
@@ -56,6 +56,7 @@
                 		<% end %>
                   </div>
                 </div>
+                <%= link_to "view_list", reports_path, class: 'material-icons' %>
                 <a class="material-icons modal-trigger" href="#share-icons">share</a>
                 <div id="share-icons" class="share">
                   <%= social_share_button_tag(report.title) %>
@@ -65,20 +66,28 @@
                 <div class="chart">
                   <%= area_chart data_collection_internet_user_path, download: true, xtitle: "Year", ytitle: "Hits" %>
                   <div class="chart-actions">
-                    <span class="source-url">Sources: </span>
+                    <span class="source-url">Sources:&nbsp</span>
                     <% @sources.each do |s| %>
                       <%if s.medium == "Internet" %>
-                          <span class="source-url"><%= link_to s.name, s.link, target: '_blank' %></span>
+                          <span class="source-url"><%= link_to s.name, s.link, target: '_blank' %>&nbsp&nbsp</span>
                       <% end %>
                     <% end %>
-                    <%= link_to "add_circle", new_source_path('Internet'), class: 'material-icons' %>
+                    <a class="material-icons modal-trigger" href="#add_internet_source">add_circle</a>
+                    <div id="add_internet_source" class="modal">
+                      <div class="modal-form">
+                        <h5 class="card-title">New Source</h5>
+                        <%= render :partial => 'sources/new', locals: {medium: "Internet"} %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-
           </div>
+          <!-- End Internet Section -->
+          <!-- Facebook Section -->
+
+          <!-- End Facebook Section -->
   </div>
 
 </div>

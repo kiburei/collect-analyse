@@ -1,33 +1,19 @@
+# <%= render partial: 'layouts/nav' %>
 <p id="notice"><%= notice %></p>
 
-<h1>Reports</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Author</th>
-      <th>Medium</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reports.each do |report| %>
-      <tr>
-        <td><%= report.title %></td>
-        <td><%= report.body %></td>
-        <td><%= report.author %></td>
-        <td><%= report.medium %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Report', new_report_path %>
+      <div class="row">
+        <% @reports.each do |report| %>
+          <div class="col s12 m4">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title"><%= report.title %></span>
+                <p><%= report.body.split[0..50].join(" ") %></p>
+              </div>
+              <div class="card-action">
+                <a href="#">by <%= report.author %></a>
+                <%= link_to 'More', report %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
