@@ -17,11 +17,9 @@
 //= require turbolinks
 //= require_tree .
 //= require materialize
-
+//= require social-share-button
+//= require social-share-button/wechat
 
   $(document).ready(function(){
-    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-    $('#report-internet').hide();
-    $('#hide').hide();
-    $('.modal1').modal();
+    $('#report-internet').modal();
   });

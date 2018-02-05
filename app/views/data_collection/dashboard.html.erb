@@ -14,14 +14,26 @@
           <!-- Internet -->
           <div class="card">
             <div class="row">
-              <div class="col s2">
-                <div class="icon">
-            			<%= image_tag 'internet', height: '30' %>
-            		</div>
-                <h6>Internet Stats</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut  nostrud exercitation ullamco laboris nisi ut nostrud exercitation ullamco laboris nisi ut</p>
-                <a id="reveal" href="#">continue reading</a></br>
-                <%= link_to "add", new_report_path('Internet'), class: 'material-icons' %>
+              <div class="col s3">
+                <% report = @reports.where(medium: 'Internet').last %>
+                <h5><%= report.title %></h5> by <%= report.author %>
+                <p><%= report.body.split[0..40].join(" ") %>
+                <a class="modal-trigger" href="#report-internet">continue reading</a></p></br>
+                <!-- report modal -->
+                  <div id="report-internet" class="modal bottom-sheet">
+                   <div class="modal-content">
+                     <p><%= report.body.split[41..1000].join(" ") %></p>
+                   </div>
+                   <div class="modal-footer">
+                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                   </div>
+                 </div>
+                 <!-- End report -->
+                <%= link_to "add_circle", new_report_path('Internet'), class: 'material-icons' %>
+                <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                <%= link_to "archive", internet_users_download_path, class: 'material-icons' %>
+                <%= link_to "insert_chart", internet_users_download_path, class: 'material-icons' %>
+                <%= social_share_button_tag(report.title) %>
               </div>
               <div class="col s9">
                 <div class="chart">
@@ -33,72 +45,14 @@
                           <span class="source-url"><%= link_to s.name, s.link, target: '_blank' %></span>
                       <% end %>
                     <% end %>
-                    <%= link_to "add", new_source_path('Internet'), class: 'material-icons' %>
+                    <%= link_to "add_circle", new_source_path('Internet'), class: 'material-icons' %>
                   </div>
                 </div>
               </div>
-              <div class="col s1">
-                <h6> Chart Type</h6>
-                <ul>
-                  <li>Mobile Phones</li>
-                  <li>Fiber Optic</li>
-                  <li>Wi-Fi</li>
-                  <li>LAN</li>
-                </ul>
-                <i class="material-icons">share</i>  <i class="material-icons">file_download</i>
-              </div>
             </div>
-          </div>
-          <div id="report-internet" class="report">
-            <h3>Lorem Ipsum</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a id="hide" href="#">Close</a>
-          </div>
-<!--
-      		<div class="icon">
-      			<%= image_tag 'mobile', height: '50' %>
-      		</div>
-          <div class="chart">
-          	<%= area_chart data_collection_mobile_user_path, download: true, title: "Mobile Trends", xtitle: "Year", ytitle: "Hits" %>
-          </div>
-      		<div class="icon">
-      			<%= image_tag 'facebook', height: '50' %>
-      		</div>
-    			<div class="chart">
-            <%= area_chart data_collection_facebook_user_path, download: true, title: "Facebook Trends", xtitle: "Year", ytitle: "Hits" %>
-          </div>
-      		<div class="icon">
-      			<%= image_tag 'twitter', height: '50' %>
-      		</div>
-          <div class="chart">
-          	<%= area_chart data_collection_twitter_user_path, download: true, title: "Twitter Trends", xtitle: "Year", ytitle: "Hits" %>
-          </div>
-      		<div class="icon">
-      			<%= image_tag 'instagram', height: '50' %>
-      		</div>
-          <div class="chart">
-          	<%= area_chart data_collection_instagram_user_path, download: true, title: "Instagram Trends", xtitle: "Year", ytitle: "Hits" %>
-          </div>
 
-      		<div class="icon">
-      			<%= image_tag 'whatsapp', height: '50' %>
-      		</div>
-          <div class="chart">
-          	<%= area_chart data_collection_whatsapp_user_path, download: true, title: "Whatsapp Trends", xtitle: "Year", ytitle: "Hits" %>
-          </div>
-      		<div class="icon">
-      			<%= image_tag 'linkedin', height: '50' %>
-      		</div>
-          <div class="chart">
-          	<%= area_chart data_collection_linkedin_user_path, download: true, title: "LinedIn Trends", xtitle: "Year", ytitle: "Hits" %>
-          </div>
-        	<div class="icon">
-      			<%= image_tag 'telegram', height: '50' %>
-      		</div>
-          <div class="chart">
-          	<%= area_chart data_collection_telegram_user_path, download: true, title: "Telegram Trends", xtitle: "Year", ytitle: "Hits" %>
-          </div> -->
 
+          </div>
   </div>
 
 </div>

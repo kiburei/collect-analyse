@@ -39,6 +39,7 @@ class DataCollectionController < ApplicationController
 
     def dashboard
       @sources = Source.all
+      @reports = Report.all
     end
 
 end

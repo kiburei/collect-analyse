@@ -11,6 +11,14 @@ class InternetUsersController < ApplicationController
 		end
 	end
 
+	def download
+		@internet_users = InternetUser.all
+		#
+		respond_to do |format|
+			format.csv { send_data @internet_users.to_csv, filename: "internet_users.csv" }
+		end
+	end
+
 	private
 
 	def internet_user_params

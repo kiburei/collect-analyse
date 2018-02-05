@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require social-share-button
  */
  @import "materialize/components/color";
  $primary-color: color("blue", "lighten-2") !default;
@@ -27,6 +28,7 @@
 }
 
 .source-url {
+  padding-top: 4px;
   float: left;
 }
 

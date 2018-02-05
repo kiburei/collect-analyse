@@ -2,11 +2,12 @@ class InternetUser < ApplicationRecord
   has_many :sources
 
   def self.to_csv
-    CSV.generate do |csv|
-      colum_names = %w(year hits)
-      csv << colum_names
+    attributes = %w{year hits}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
       all.each do |internet_user|
-        csv << internet_user.attributes.values_at(colum_names)
+        csv << attributes.map{ |attr| internet_user.send(attr) }
       end
     end
   end

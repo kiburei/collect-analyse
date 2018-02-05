@@ -27,10 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :medium %>
-    <%= form.text_field :medium, id: :report_medium %>
+    <%= form.hidden_field :medium, value: params[:format] %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
