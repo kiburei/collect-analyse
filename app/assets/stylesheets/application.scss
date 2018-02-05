@@ -36,8 +36,11 @@
   font-size: 13px;
   h1, h2, h3, h4, h5, h6 {
     color: #64B5F6;
-    font-size: 20px;
   }
+}
+
+.card-title {
+  text-align: center;
 }
 
 .chart-actions {
@@ -100,4 +103,17 @@
 .dash {
   padding: 5px;
   box-shadow: 0px 1px 1px 0px;
+}
+
+.share {
+  display: none;
+}
+
+.report {
+  padding: 25px;
+  text-align: justify;
+}
+
+.report-form {
+  padding: 15px;
 }

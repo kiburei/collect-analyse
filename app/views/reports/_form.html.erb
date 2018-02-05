@@ -1,10 +1,10 @@
-<%= form_with(model: report, local: true) do |form| %>
-  <% if report.errors.any? %>
+<%= form_with(model: @report, local: true) do |form| %>
+  <% if @report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
 
       <ul>
-      <% report.errors.full_messages.each do |message| %>
+      <% @report.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -16,7 +16,7 @@
     <%= form.text_field :title, id: :report_title %>
   </div>
 
-  <div class="field">
+  <div class="text_area">
     <%= form.label :body %>
     <%= form.text_area :body, id: :report_body %>
   </div>
@@ -27,9 +27,10 @@
   </div>
 
   <div class="field">
-    <%= form.hidden_field :medium, value: params[:format] %>
+    <%= form.label :medium %>
+    <%= form.text_field :medium, value: medium %>
   </div>
-  <div class="actions">
+  <div class="waves-effect btn blue">
     <%= form.submit %>
   </div>
 <% end %>

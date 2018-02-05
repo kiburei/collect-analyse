@@ -22,4 +22,7 @@
 
   $(document).ready(function(){
     $('#report-internet').modal();
+    $('#add_internet_data').modal();
+    $('#share-icons').modal();
+    $('#add_internet_report').modal();
   });
