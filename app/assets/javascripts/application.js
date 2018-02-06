@@ -21,9 +21,16 @@
 //= require social-share-button/wechat
 
   $(document).ready(function(){
+    // Internet
     $('#report-internet').modal();
-    $('#add_internet_data').modal();
-    $('#share-icons').modal();
-    $('#add_internet_report').modal();
-    $('#add_internet_source').modal();
+    $('#add-internet-data').modal();
+    $('#share-icons-internet').modal();
+    $('#add-internet-report').modal();
+    $('#add-internet-source').modal();
+    // Facebook
+    $('#report-facebook').modal();
+    $('#add-facebook-data').modal();
+    $('#share-icons-facebook').modal();
+    $('#add-facebook-report').modal();
+    $('#add-facebook-source').modal();
   });
