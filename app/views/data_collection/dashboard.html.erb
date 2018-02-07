@@ -139,7 +139,7 @@
                   </div>
                 </div>
                 <%= link_to "view_list", reports_path, class: 'material-icons' %>
-                <a class="material-icons modal-trigger" href="#share-icons">share</a>
+                <a class="material-icons modal-trigger" href="#share-icons-facebook">share</a>
                 <div id="share-icons-facebook" class="share">
                   <%= social_share_button_tag(report.title) %>
                 </div>
@@ -168,6 +168,396 @@
           </div>
         </section>
           <!-- End Facebook Section -->
+          <!-- Twitter Section -->
+          <section>
+            <div class="card">
+              <h2 class="card-title">Number of Twitter Users in Kenya</h2>
+              <div class="row">
+                <div class="col s3">
+                  <% if @reports.where(medium: 'Twitter').any? %>
+                    <% report = @reports.where(medium: 'Twitter').last %>
+                    <h6><%= report.title %></h6> by <%= report.author %>
+                    <p><%= report.body.split[0..50].join(" ") %>
+                    <a class="modal-trigger" href="#report-twitter">continue reading</a></p></br>
+                    <!-- report modal -->
+                      <div id="report-twitter" class="modal bottom-sheet">
+                       <div class="modal-content">
+                         <h3 class="card-title"><%= report.title %></h3>
+                         <p class="report"><%= if report.body.size > 50 then report.body.split[51..1000].join(" ") end %></p>
+                       </div>
+                     </div>
+                  <% end %>
+                   <!-- End report -->
+                  <a class="material-icons modal-trigger" href="#add-twitter-report">add_circle</a>
+                  <div id="add-twitter-report" class="modal">
+                    <div class="modal-form">
+                      <h5 class="card-title">New Report</h5>
+                      <%= render :partial => 'reports/form', locals: {medium: "Twitter"} %>
+                    </div>
+                  </div>
+                  <!-- <%= link_to "edit", edit_report_path(report), class: 'material-icons' %> -->
+                  <%= link_to "archive", root_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#add-twitter-data">insert_chart</a>
+                  <div id="add-twitter-data" class="modal">
+                    <div class="modal-content">
+                      <h3 class="card-title">Add Internet Statistics</h3>
+                      <%= form_tag("/twitter_users", method: "post") do %>
+                        <div class="row">
+                          <div class="col s6">
+                            <%= label_tag(:year, "Year:") %>
+                            <%= text_field_tag(:year, if TwitterUser.count > 0 then TwitterUser.last.year.to_i + 1 else "Year" end) %>
+                          </div>
+                          <div class="col s6">
+                            <%= label_tag(:hits, "Users:") %>
+                            <%= number_field_tag(:hits, :required => true) %>
+                          </div>
+                        </div>
+                        <%= submit_tag("Add", class: 'waves-effect btn blue') %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <%= link_to "view_list", reports_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#share-icons-twitter">share</a>
+                  <div id="share-icons-twitter" class="share">
+                    <%= social_share_button_tag(report.title) %>
+                  </div>
+                </div>
+                <div class="col s9">
+                  <div class="chart">
+                    <%= area_chart data_collection_twitter_user_path, download: true, xtitle: "Year", ytitle: "Hits" %>
+                    <div class="chart-actions">
+                      <span class="source-url">Sources:&nbsp</span>
+                      <% @sources.each do |s| %>
+                        <%if s.medium == "Twitter" %>
+                            <span class="source-url"><%= link_to s.name, "http://#{s.link}", target: '_blank' %>&nbsp&nbsp</span>
+                        <% end %>
+                      <% end %>
+                      <a class="material-icons modal-trigger" href="#add-twitter-source">add_circle</a>
+                      <div id="add-twitter-source" class="modal">
+                        <div class="modal-form">
+                          <h5 class="card-title">New Source</h5>
+                          <%= render :partial => 'sources/new', locals: {medium: "Twitter"} %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- End Twitter Section -->
+          <!-- Instagram Section -->
+          <section>
+            <div class="card">
+              <h2 class="card-title">Number of Instagram Users in Kenya</h2>
+              <div class="row">
+                <div class="col s3">
+                  <% if @reports.where(medium: 'Instagram').any? %>
+                    <% report = @reports.where(medium: 'Instagram').last %>
+                    <h6><%= report.title %></h6> by <%= report.author %>
+                    <p><%= report.body.split[0..50].join(" ") %>
+                    <a class="modal-trigger" href="#report-instagram">continue reading</a></p></br>
+                    <!-- report modal -->
+                      <div id="report-instagram" class="modal bottom-sheet">
+                       <div class="modal-content">
+                         <h3 class="card-title"><%= report.title %></h3>
+                         <p class="report"><%= if report.body.size > 50 then report.body.split[51..1000].join(" ") end %></p>
+                       </div>
+                     </div>
+                  <% end %>
+                   <!-- End report -->
+                  <a class="material-icons modal-trigger" href="#add-instagram-report">add_circle</a>
+                  <div id="add-instagram-report" class="modal">
+                    <div class="modal-form">
+                      <h5 class="card-title">New Report</h5>
+                      <%= render :partial => 'reports/form', locals: {medium: "Instagram"} %>
+                    </div>
+                  </div>
+                  <!-- <%= link_to "edit", edit_report_path(report), class: 'material-icons' %> -->
+                  <%= link_to "archive", root_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#add-instagram-data">insert_chart</a>
+                  <div id="add-instagram-data" class="modal">
+                    <div class="modal-content">
+                      <h3 class="card-title">Add Internet Statistics</h3>
+                      <%= form_tag("/instagram_users", method: "post") do %>
+                        <div class="row">
+                          <div class="col s6">
+                            <%= label_tag(:year, "Year:") %>
+                            <%= text_field_tag(:year, if InstagramUser.count > 0 then InstagramUser.last.year.to_i + 1 else "Year" end) %>
+                          </div>
+                          <div class="col s6">
+                            <%= label_tag(:hits, "Users:") %>
+                            <%= number_field_tag(:hits, :required => true) %>
+                          </div>
+                        </div>
+                        <%= submit_tag("Add", class: 'waves-effect btn blue') %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <%= link_to "view_list", reports_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#share-icons-instagram">share</a>
+                  <div id="share-icons-instagram" class="share">
+                    <%= social_share_button_tag(report.title) %>
+                  </div>
+                </div>
+                <div class="col s9">
+                  <div class="chart">
+                    <%= area_chart data_collection_instagram_user_path, download: true, xtitle: "Year", ytitle: "Hits" %>
+                    <div class="chart-actions">
+                      <span class="source-url">Sources:&nbsp</span>
+                      <% @sources.each do |s| %>
+                        <%if s.medium == "Instagram" %>
+                            <span class="source-url"><%= link_to s.name, "http://#{s.link}", target: '_blank' %>&nbsp&nbsp</span>
+                        <% end %>
+                      <% end %>
+                      <a class="material-icons modal-trigger" href="#add-instagram-source">add_circle</a>
+                      <div id="add-instagram-source" class="modal">
+                        <div class="modal-form">
+                          <h5 class="card-title">New Source</h5>
+                          <%= render :partial => 'sources/new', locals: {medium: "Instagram"} %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- End Instagram Section -->
+          <!-- Mobile Section -->
+          <section>
+            <div class="card">
+              <h2 class="card-title">Number of Mobile Users in Kenya</h2>
+              <div class="row">
+                <div class="col s3">
+                  <% if @reports.where(medium: 'Mobile').any? %>
+                    <% report = @reports.where(medium: 'Mobile').last %>
+                    <h6><%= report.title %></h6> by <%= report.author %>
+                    <p><%= report.body.split[0..50].join(" ") %>
+                    <a class="modal-trigger" href="#report-mobile">continue reading</a></p></br>
+                    <!-- report modal -->
+                      <div id="report-mobile" class="modal bottom-sheet">
+                       <div class="modal-content">
+                         <h3 class="card-title"><%= report.title %></h3>
+                         <p class="report"><%= if report.body.size > 50 then report.body.split[51..1000].join(" ") end %></p>
+                       </div>
+                     </div>
+                  <% end %>
+                   <!-- End report -->
+                  <a class="material-icons modal-trigger" href="#add-mobile-report">add_circle</a>
+                  <div id="add-mobile-report" class="modal">
+                    <div class="modal-form">
+                      <h5 class="card-title">New Report</h5>
+                      <%= render :partial => 'reports/form', locals: {medium: "Mobile"} %>
+                    </div>
+                  </div>
+                  <!-- <%= link_to "edit", edit_report_path(report), class: 'material-icons' %> -->
+                  <%= link_to "archive", root_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#add-mobile-data">insert_chart</a>
+                  <div id="add-mobile-data" class="modal">
+                    <div class="modal-content">
+                      <h3 class="card-title">Add Mobile Statistics</h3>
+                      <%= form_tag("/mobile_users", method: "post") do %>
+                        <div class="row">
+                          <div class="col s6">
+                            <%= label_tag(:year, "Year:") %>
+                            <%= text_field_tag(:year, if MobileUser.count > 0 then MobileUser.last.year.to_i + 1 else "Year" end) %>
+                          </div>
+                          <div class="col s6">
+                            <%= label_tag(:hits, "Users:") %>
+                            <%= number_field_tag(:hits, :required => true) %>
+                          </div>
+                        </div>
+                        <%= submit_tag("Add", class: 'waves-effect btn blue') %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <%= link_to "view_list", reports_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#share-icons-mobile">share</a>
+                  <div id="share-icons-mobile" class="share">
+                    <%= social_share_button_tag(report.title) %>
+                  </div>
+                </div>
+                <div class="col s9">
+                  <div class="chart">
+                    <%= area_chart data_collection_mobile_user_path, download: true, xtitle: "Year", ytitle: "Hits" %>
+                    <div class="chart-actions">
+                      <span class="source-url">Sources:&nbsp</span>
+                      <% @sources.each do |s| %>
+                        <%if s.medium == "Mobile" %>
+                            <span class="source-url"><%= link_to s.name, "http://#{s.link}", target: '_blank' %>&nbsp&nbsp</span>
+                        <% end %>
+                      <% end %>
+                      <a class="material-icons modal-trigger" href="#add-mobile-source">add_circle</a>
+                      <div id="add-mobile-source" class="modal">
+                        <div class="modal-form">
+                          <h5 class="card-title">New Source</h5>
+                          <%= render :partial => 'sources/new', locals: {medium: "Mobile"} %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- End Mobile Section -->
+          <!-- linkedin section -->
+          <section>
+            <div class="card">
+              <h2 class="card-title">Number of Linkedin Users in Kenya</h2>
+              <div class="row">
+                <div class="col s3">
+                  <% if @reports.where(medium: 'Linkedin').any? %>
+                    <% report = @reports.where(medium: 'Linkedin').last %>
+                    <h6><%= report.title %></h6> by <%= report.author %>
+                    <p><%= report.body.split[0..50].join(" ") %>
+                    <a class="modal-trigger" href="#report-linkedin">continue reading</a></p></br>
+                    <!-- report modal -->
+                      <div id="report-linkedin" class="modal bottom-sheet">
+                       <div class="modal-content">
+                         <h3 class="card-title"><%= report.title %></h3>
+                         <p class="report"><%= if report.body.size > 50 then report.body.split[51..1000].join(" ") end %></p>
+                       </div>
+                     </div>
+                  <% end %>
+                   <!-- End report -->
+                  <a class="material-icons modal-trigger" href="#add-linkedin-report">add_circle</a>
+                  <div id="add-linkedin-report" class="modal">
+                    <div class="modal-form">
+                      <h5 class="card-title">New Report</h5>
+                      <%= render :partial => 'reports/form', locals: {medium: "Linkedin"} %>
+                    </div>
+                  </div>
+                  <!-- <%= link_to "edit", edit_report_path(report), class: 'material-icons' %> -->
+                  <%= link_to "archive", root_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#add-linkedin-data">insert_chart</a>
+                  <div id="add-linkedin-data" class="modal">
+                    <div class="modal-content">
+                      <h3 class="card-title">Add Mobile Statistics</h3>
+                      <%= form_tag("/linkedin_users", method: "post") do %>
+                        <div class="row">
+                          <div class="col s6">
+                            <%= label_tag(:year, "Year:") %>
+                            <%= text_field_tag(:year, if LinkedinUser.count > 0 then LinkedinUser.last.year.to_i + 1 else "Year" end) %>
+                          </div>
+                          <div class="col s6">
+                            <%= label_tag(:hits, "Users:") %>
+                            <%= number_field_tag(:hits, :required => true) %>
+                          </div>
+                        </div>
+                        <%= submit_tag("Add", class: 'waves-effect btn blue') %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <%= link_to "view_list", reports_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#share-icons-linkedin">share</a>
+                  <div id="share-icons-linkedin" class="share">
+                    <%= social_share_button_tag(report.title) %>
+                  </div>
+                </div>
+                <div class="col s9">
+                  <div class="chart">
+                    <%= area_chart data_collection_linkedin_user_path, download: true, xtitle: "Year", ytitle: "Hits" %>
+                    <div class="chart-actions">
+                      <span class="source-url">Sources:&nbsp</span>
+                      <% @sources.each do |s| %>
+                        <%if s.medium == "Linkedin" %>
+                            <span class="source-url"><%= link_to s.name, "http://#{s.link}", target: '_blank' %>&nbsp&nbsp</span>
+                        <% end %>
+                      <% end %>
+                      <a class="material-icons modal-trigger" href="#add-linkedin-source">add_circle</a>
+                      <div id="add-linkedin-source" class="modal">
+                        <div class="modal-form">
+                          <h5 class="card-title">New Source</h5>
+                          <%= render :partial => 'sources/new', locals: {medium: "Linkedin"} %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- End linkedin section -->
+          <!-- WhatsApp section -->
+          <section>
+            <div class="card">
+              <h2 class="card-title">Number of WhatsApp Users in Kenya</h2>
+              <div class="row">
+                <div class="col s3">
+                  <% if @reports.where(medium: 'Whatsapp').any? %>
+                    <% report = @reports.where(medium: 'Whatsapp').last %>
+                    <h6><%= report.title %></h6> by <%= report.author %>
+                    <p><%= report.body.split[0..50].join(" ") %>
+                    <a class="modal-trigger" href="#report-whatsapp">continue reading</a></p></br>
+                    <!-- report modal -->
+                      <div id="report-whatsapp" class="modal bottom-sheet">
+                       <div class="modal-content">
+                         <h3 class="card-title"><%= report.title %></h3>
+                         <p class="report"><%= if report.body.size > 50 then report.body.split[51..1000].join(" ") end %></p>
+                       </div>
+                     </div>
+                  <% end %>
+                   <!-- End report -->
+                  <a class="material-icons modal-trigger" href="#add-whatsapp-report">add_circle</a>
+                  <div id="add-whatsapp-report" class="modal">
+                    <div class="modal-form">
+                      <h5 class="card-title">New Report</h5>
+                      <%= render :partial => 'reports/form', locals: {medium: "Whatsapp"} %>
+                    </div>
+                  </div>
+                  <!-- <%= link_to "edit", edit_report_path(report), class: 'material-icons' %> -->
+                  <%= link_to "archive", root_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#add-whatsapp-data">insert_chart</a>
+                  <div id="add-whatsapp-data" class="modal">
+                    <div class="modal-content">
+                      <h3 class="card-title">Add Whatsapp Statistics</h3>
+                      <%= form_tag("/whatsapp_users", method: "post") do %>
+                        <div class="row">
+                          <div class="col s6">
+                            <%= label_tag(:year, "Year:") %>
+                            <%= text_field_tag(:year, if WhatsappUser.count > 0 then WhatsappUser.last.year.to_i + 1 else "Year" end) %>
+                          </div>
+                          <div class="col s6">
+                            <%= label_tag(:hits, "Users:") %>
+                            <%= number_field_tag(:hits, :required => true) %>
+                          </div>
+                        </div>
+                        <%= submit_tag("Add", class: 'waves-effect btn blue') %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <%= link_to "view_list", reports_path, class: 'material-icons' %>
+                  <a class="material-icons modal-trigger" href="#share-icons-whatsapp">share</a>
+                  <div id="share-icons-whatsapp" class="share">
+                    <%= social_share_button_tag(report.title) %>
+                  </div>
+                </div>
+                <div class="col s9">
+                  <div class="chart">
+                    <%= area_chart data_collection_whatsapp_user_path, download: true, xtitle: "Year", ytitle: "Hits" %>
+                    <div class="chart-actions">
+                      <span class="source-url">Sources:&nbsp</span>
+                      <% @sources.each do |s| %>
+                        <%if s.medium == "Whatsapp" %>
+                            <span class="source-url"><%= link_to s.name, "http://#{s.link}", target: '_blank' %>&nbsp&nbsp</span>
+                        <% end %>
+                      <% end %>
+                      <a class="material-icons modal-trigger" href="#add-whatsapp-source">add_circle</a>
+                      <div id="add-whatsapp-source" class="modal">
+                        <div class="modal-form">
+                          <h5 class="card-title">New Source</h5>
+                          <%= render :partial => 'sources/new', locals: {medium: "Whatsapp"} %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- End whatsapp section -->
   </div>
 
 </div>

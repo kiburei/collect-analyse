@@ -33,4 +33,34 @@
     $('#share-icons-facebook').modal();
     $('#add-facebook-report').modal();
     $('#add-facebook-source').modal();
+    // Twitter
+    $('#report-twitter').modal();
+    $('#add-twitter-data').modal();
+    $('#share-icons-twitter').modal();
+    $('#add-twitter-report').modal();
+    $('#add-twitter-source').modal();
+    // Instagram
+    $('#report-instagram').modal();
+    $('#add-instagram-data').modal();
+    $('#share-icons-instagram').modal();
+    $('#add-instagram-report').modal();
+    $('#add-instagram-source').modal();
+    // Mobile
+    $('#report-mobile').modal();
+    $('#add-mobile-data').modal();
+    $('#share-icons-mobile').modal();
+    $('#add-mobile-report').modal();
+    $('#add-mobile-source').modal();
+    // Linkedin
+    $('#report-linkedin').modal();
+    $('#add-linkedin-data').modal();
+    $('#share-icons-linkedin').modal();
+    $('#add-linkedin-report').modal();
+    $('#add-linkedin-source').modal();
+    // WhatsApp
+    $('#report-whatsapp').modal();
+    $('#add-whatsapp-data').modal();
+    $('#share-icons-whatsapp').modal();
+    $('#add-whatsapp-report').modal();
+    $('#add-whatsapp-source').modal();
   });
