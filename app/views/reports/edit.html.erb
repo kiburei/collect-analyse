@@ -1,6 +1,41 @@
 <h1>Editing Report</h1>
 
-<%= render 'form', report: @report %>
+<%= form_with(model: @report, local: true) do |form| %>
+  <% if @report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% @report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :report_title %>
+  </div>
+
+  <div class="text_area">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :report_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :report_author %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :medium %>
+  </div>
+  <div class="waves-effect btn blue">
+    <%= form.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @report %> |
 <%= link_to 'Back', reports_path %>
