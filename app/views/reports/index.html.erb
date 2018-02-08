@@ -1,6 +1,7 @@
 <%= render partial: 'layouts/nav' %>
 <p id="notice"><%= notice %></p>
 
+      <% if @reports.any? %>
       <div class="row">
         <% @reports.each do |report| %>
           <div class="col s12 m4">
@@ -17,3 +18,5 @@
           </div>
         <% end %>
       </div>
+
+      <% end %>

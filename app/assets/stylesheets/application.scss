@@ -19,6 +19,10 @@
  $secondary-color: color("yellow", "base") !default;
  @import 'materialize';
 
+.fixed {
+  background-color: #e1dddd;
+}
+
 .main {
   padding-left: 310px;
 }
