@@ -31,7 +31,7 @@
                      <%= render :partial => 'reports/form', locals: {medium: "Internet"} %>
                    </div>
                  </div>
-                 <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                 <%= if report == nil? then link_to "edit", edit_report_path(report), class: 'material-icons' end %>
                  <a class="material-icons modal-trigger" href="#add-internet-data">insert_chart</a>
                  <div id="add-internet-data" class="modal">
                    <div class="modal-content">
@@ -56,7 +56,7 @@
                   <%= link_to "view_list", reports_path('Internet'), class: 'material-icons' %>
                   <a class="material-icons modal-trigger" href="#share-icons-internet">share</a>
                   <div id="share-icons-internet" class="share">
-                    <%= social_share_button_tag(report.title) %>
+                    <%= if report == nil? then social_share_button_tag(report.title) end %>
                   </div>
                 </div>
                 <div class="col s9">
@@ -113,7 +113,7 @@
                     <%= render :partial => 'reports/form', locals: {medium: "Facebook"} %>
                   </div>
                 </div>
-                <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                <%= if report == nil? then link_to "edit", edit_report_path(report), class: 'material-icons' end %>
                 <a class="material-icons modal-trigger" href="#add-facebook-data">insert_chart</a>
                 <div id="add-facebook-data" class="modal">
                   <div class="modal-content">
@@ -138,7 +138,7 @@
                 <%= link_to "view_list", reports_path('Facebook'), class: 'material-icons' %>
                 <a class="material-icons modal-trigger" href="#share-icons-facebook">share</a>
                 <div id="share-icons-facebook" class="share">
-                  <%= social_share_button_tag(report.title) %>
+                  <%= if report == nil? then social_share_button_tag(report.title) end %>
                 </div>
               </div>
               <div class="col s9">
@@ -195,7 +195,7 @@
                       <%= render :partial => 'reports/form', locals: {medium: "Twitter"} %>
                     </div>
                   </div>
-                  <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                  <%= if report == nil? then link_to "edit", edit_report_path(report), class: 'material-icons' end %>
                   <a class="material-icons modal-trigger" href="#add-twitter-data">insert_chart</a>
                   <div id="add-twitter-data" class="modal">
                     <div class="modal-content">
@@ -220,7 +220,7 @@
                   <%= link_to "view_list", reports_path('Twitter'), class: 'material-icons' %>
                   <a class="material-icons modal-trigger" href="#share-icons-twitter">share</a>
                   <div id="share-icons-twitter" class="share">
-                    <%= social_share_button_tag(report.title) %>
+                    <%= if report == nil? then social_share_button_tag(report.title) end %>
                   </div>
                 </div>
                 <div class="col s9">
@@ -277,7 +277,7 @@
                       <%= render :partial => 'reports/form', locals: {medium: "Instagram"} %>
                     </div>
                   </div>
-                  <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                  <%= if report == nil? then link_to "edit", edit_report_path(report), class: 'material-icons' end %>
                   <a class="material-icons modal-trigger" href="#add-instagram-data">insert_chart</a>
                   <div id="add-instagram-data" class="modal">
                     <div class="modal-content">
@@ -302,7 +302,7 @@
                   <%= link_to "view_list", reports_path('Instagram'), class: 'material-icons' %>
                   <a class="material-icons modal-trigger" href="#share-icons-instagram">share</a>
                   <div id="share-icons-instagram" class="share">
-                    <%= social_share_button_tag(report.title) %>
+                    <%= if report == nil? then social_share_button_tag(report.title) end %>
                   </div>
                 </div>
                 <div class="col s9">
@@ -359,7 +359,7 @@
                       <%= render :partial => 'reports/form', locals: {medium: "Mobile"} %>
                     </div>
                   </div>
-                  <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                  <%= if report == nil? then link_to "edit", edit_report_path(report), class: 'material-icons' end %>
                   <a class="material-icons modal-trigger" href="#add-mobile-data">insert_chart</a>
                   <div id="add-mobile-data" class="modal">
                     <div class="modal-content">
@@ -384,7 +384,7 @@
                   <%= link_to "view_list", reports_path('Mobile'), class: 'material-icons' %>
                   <a class="material-icons modal-trigger" href="#share-icons-mobile">share</a>
                   <div id="share-icons-mobile" class="share">
-                    <%= social_share_button_tag(report.title) %>
+                    <%= if report == nil? then social_share_button_tag(report.title) end %>
                   </div>
                 </div>
                 <div class="col s9">
@@ -441,7 +441,7 @@
                       <%= render :partial => 'reports/form', locals: {medium: "Linkedin"} %>
                     </div>
                   </div>
-                  <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                  <%= if report == nil? then link_to "edit", edit_report_path(report), class: 'material-icons' end %>
                   <a class="material-icons modal-trigger" href="#add-linkedin-data">insert_chart</a>
                   <div id="add-linkedin-data" class="modal">
                     <div class="modal-content">
@@ -466,7 +466,7 @@
                   <%= link_to "view_list", reports_path('Linkedin'), class: 'material-icons' %>
                   <a class="material-icons modal-trigger" href="#share-icons-linkedin">share</a>
                   <div id="share-icons-linkedin" class="share">
-                    <%= social_share_button_tag(report.title) %>
+                    <%= if report == nil? then social_share_button_tag(report.title) end %>
                   </div>
                 </div>
                 <div class="col s9">
@@ -521,7 +521,7 @@
                       <%= render :partial => 'reports/form', locals: {medium: "Whatsapp"} %>
                     </div>
                   </div>
-                  <%= link_to "edit", edit_report_path(report), class: 'material-icons' %>
+                  <%= if report == nil? then link_to "edit", edit_report_path(report), class: 'material-icons' end %>
                   <a class="material-icons modal-trigger" href="#add-whatsapp-data">insert_chart</a>
                   <div id="add-whatsapp-data" class="modal">
                     <div class="modal-content">
@@ -546,7 +546,7 @@
                   <%= link_to "view_list", reports_path('Whatsapp'), class: 'material-icons' %>
                   <a class="material-icons modal-trigger" href="#share-icons-whatsapp">share</a>
                   <div id="share-icons-whatsapp" class="share">
-                    <%= social_share_button_tag(report.title) %>
+                    <%= if report == nil? then social_share_button_tag(report.title) end %>
                   </div>
                 </div>
                 <div class="col s9">
