@@ -21,6 +21,8 @@
 //= require social-share-button/wechat
 
   $(document).ready(function(){
+    // Nav
+    $(".button-collapse").sideNav();
     // Internet
     $('#report-internet').modal();
     $('#add-internet-data').modal();

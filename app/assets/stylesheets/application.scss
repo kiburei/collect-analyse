@@ -19,12 +19,15 @@
  $secondary-color: color("yellow", "base") !default;
  @import 'materialize';
 
+.main {
+  padding-left: 300px;
+}
 .dash {
   display: flex;
 }
 
 .charts {
-  flex: 9;
+  // padding-left: 300px;
 }
 
 .source-url {
