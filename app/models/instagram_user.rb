@@ -1,3 +1,15 @@
 class InstagramUser < ApplicationRecord
   validates :hits, presence: true
+
+  def self.to_csv
+    attributes = %w{year hits}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |instagram_user|
+        csv << attributes.map{ |attr| instagram_users.send(attr) }
+      end
+    end
+  end
+
 end

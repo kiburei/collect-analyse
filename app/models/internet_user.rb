@@ -1,5 +1,6 @@
 class InternetUser < ApplicationRecord
   has_many :sources
+  validates :hits, presence: true
 
   def self.to_csv
     attributes = %w{year hits}
