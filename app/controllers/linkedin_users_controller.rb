@@ -10,7 +10,14 @@ class LinkedinUsersController < ApplicationController
 			end
 		end
 	end
-	
+
+	def download
+		@linkedin_user = LinkedinUser.all
+		respond_to do |format|
+			format.csv { send_data @linkedin_user.to_csv, filename: "linkedin_user.csv" }
+		end
+	end
+
 	private
 
 	def linkedin_user_params

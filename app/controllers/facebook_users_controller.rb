@@ -12,6 +12,13 @@ class FacebookUsersController < ApplicationController
 		end
 	end
 
+	def download
+		@facebook_users = FacebookUser.all
+		respond_to do |format|
+			format.csv { send_data @facebook_users.to_csv, filename: "facebook_users.csv" }
+		end
+	end
+
 	private
 
 	def facebook_user_params

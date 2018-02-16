@@ -1,5 +1,5 @@
 class WhatsappUsersController < ApplicationController
-	
+
 	def create
 		@whatsapp_user = WhatsappUser.new(whatsapp_user_params)
 		respond_to do |format|
@@ -10,7 +10,14 @@ class WhatsappUsersController < ApplicationController
 			end
 		end
 	end
-	
+
+	def download
+		@whatsapp_users = WhatsappUser.all
+		respond_to do |format|
+			format.csv { send_data @whatsapp_users.to_csv, filename: "whatsapp_users.csv" }
+		end
+	end
+
 	private
 
 	def whatsapp_user_params

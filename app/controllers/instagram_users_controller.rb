@@ -10,7 +10,14 @@ class InstagramUsersController < ApplicationController
 			end
 		end
 	end
-	
+
+	def download
+		@instagram_user = InstagramUser.all
+		respond_to do |format|
+			format.csv { send_data @instagram_user.to_csv, filename: "instagram_user.csv" }
+		end
+	end
+
 	private
 
 	def instagram_user_params

@@ -10,7 +10,14 @@ class TwitterUsersController < ApplicationController
 			end
 		end
 	end
-	
+
+	def download
+		@twitter_users = TwitterUser.all
+		respond_to do |format|
+			format.csv { send_data @twitter_users.to_csv, filename: "twitter_users.csv" }
+		end
+	end
+
 	private
 
 	def twitter_user_params

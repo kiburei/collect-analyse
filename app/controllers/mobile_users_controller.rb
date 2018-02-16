@@ -1,5 +1,5 @@
 class MobileUsersController < ApplicationController
-	
+
 	def create
 		@mobile_user = MobileUser.new(mobile_user_params)
 		respond_to do |format|
@@ -10,7 +10,14 @@ class MobileUsersController < ApplicationController
 			end
 		end
 	end
-	
+
+	def download
+		@mobile_users = MobileUser.all
+		respond_to do |format|
+			format.csv { send_data @mobile_users.to_csv, filename: "mobile_users.csv" }
+		end
+	end
+
 	private
 
 	def mobile_user_params

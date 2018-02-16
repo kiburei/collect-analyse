@@ -7,7 +7,7 @@ class InstagramUser < ApplicationRecord
     CSV.generate(headers: true) do |csv|
       csv << attributes
       all.each do |instagram_user|
-        csv << attributes.map{ |attr| instagram_users.send(attr) }
+        csv << attributes.map{ |attr| instagram_user.send(attr) }
       end
     end
   end
